@@ -2,42 +2,59 @@
 %clc;
 clear;
 
-bite.moveName = 'bite';
-bite.damage = 6;
-bite.cooldown = 0.5;
+movedata;
 
-twister.moveName = 'twister';
-twister.damage = 25;
-twister.cooldown = 2.7;
+%over 30 seconds:sola
+typeCheck = 0;
+while typeCheck ~= 1
+    fastMove = input('Please type a fast move\n');
+    typeCheck = strcmp(fastMove.type, 'Fast move');
+    if typeCheck == 0;
+        fprintf('Incorrect move type\n\n'); 
+    end
 
-%over 30 seconds:
-move = input('Please type a move\n');
-move.defcooldown = move.cooldown + 2;
-disp(move);
+end
+fastMove.defcooldown = fastMove.cooldown + 2;
+disp(fastMove);
 
-attDPS = move.damage/move.cooldown;
-defDPS = move.damage/move.defcooldown;
-numAttacksAtt = fix(30/move.cooldown);
-numAttacksDef = fix(30/move.defcooldown);
-dam30att = numAttacksAtt*move.damage;
-dam30def = numAttacksDef*move.damage;
 
-attDPSString = num2str(attDPS);
-defDPSString = num2str(defDPS);
-dam30attString = num2str(dam30att);
-dam30defString = num2str(dam30def);
+typeCheck = 0;
+while typeCheck ~= 1
+    chargeMove = input('Please type a charge move\n');
+    typeCheck = strcmp(chargeMove.type, 'Charge move');
+    if typeCheck == 0;
+        fprintf('Incorrect move type\n');
+    end
+end
+chargeMove.defcooldown = chargeMove.cooldown + 2;
+disp(chargeMove);
 
-attString = ['Attacking DPS for move ', move.moveName, ': ', attDPSString];
-disp(attString);
+movestats(fastMove);
+movestats(chargeMove);
 
-dam30attPrint = ['Attacking damage output over 30 seconds: ', dam30attString];
-disp(dam30attPrint);
 
-defString = ['Defending DPS for move ', move.moveName, ': ', defDPSString];
-disp(defString);
 
-dam30defPrint = ['Defending damage output over 30 seconds: ', dam30defString];
-disp(dam30defPrint);
+%%
+simTime = input('Simulate battle for how many seconds?\n');
+simTimeString = num2str(simTime);
+
+simMessage = ['Simulating attacking with ', fastMove.moveName, ' and ', chargeMove.moveName, ' for ', simTimeString, ' seconds.'];
+disp(simMessage);
+fprintf('\n');
+
+
+[totDamage, totTime, fastCounter, chargeCounter] = attackSim(fastMove, chargeMove, simTime);
+
+totDamageString = num2str(totDamage);
+totTimeString = num2str(totTime);
+fastCounterString = num2str(fastCounter);
+chargeCounterString = num2str(chargeCounter);
+
+simMessage2 = ['Simulated ', fastCounterString, ' uses of ', fastMove.moveName, ' and ', chargeCounterString, ' uses of ', chargeMove.moveName, ' over ', totTimeString, ' seconds.'];
+disp(simMessage2);
+fprintf('\n');
+simMessage3 = ['Total damage dealt: ', totDamageString];
+disp(simMessage3);
 fprintf('\n');
 
 
