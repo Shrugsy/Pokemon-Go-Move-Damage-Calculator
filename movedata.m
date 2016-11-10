@@ -26,6 +26,7 @@ bite.cooldown = 0.5;
 dragon_breath.moveName = 'Dragon Breath';
 dragon_breath.type = 'Fast move';
 dragon_breath.damage = 6;
+dragon_breath.enGain = 7;
 dragon_breath.cooldown = 0.5;
 
 
@@ -57,17 +58,7 @@ vine_whip.enGain = 7;
 vine_whip.cooldown = 0.65;
 
 
-power_whip.moveName = 'Power Whip';
-power_whip.type = 'Charge move';
-power_whip.damage = 70;
-power_whip.enUse = 100;
-power_whip.cooldown = 2.8;
 
-solar_beam.moveName = 'Solar Beam';
-solar_beam.type = 'Charge move';
-solar_beam.damage = 120;
-solar_beam.enUse = 100;
-solar_beam.cooldown = 4.9;
 
 
 %ground type
@@ -105,6 +96,7 @@ metal_claw.cooldown = 0.63;
 steel_wing.moveName = 'Steel Wing';
 steel_wing.type = 'Fast move';
 steel_wing.damage = 15;
+steel_wing.enGain = 4;
 steel_wing.cooldown = 1.33;
 
 %water type
@@ -128,9 +120,16 @@ twister.type = 'Charge move';
 twister.damage = 25;
 twister.cooldown = 2.7;
 
+dragon_claw.moveName = 'Dragon Claw';
+dragon_claw.type = 'Charge move';
+dragon_claw.damage = 35;
+dragon_claw.enUse = 50;
+dragon_claw.cooldown = 1.6;
+
 dragon_pulse.moveName = 'Dragon Pulse';
 dragon_pulse.type = 'Charge move';
 dragon_pulse.damage = 65;
+dragon_pulse.enUse = 50;
 dragon_pulse.cooldown = 3.6;
 
 %electric type
@@ -147,6 +146,18 @@ dragon_pulse.cooldown = 3.6;
 %ghost type
 
 %grass type
+power_whip.moveName = 'Power Whip';
+power_whip.type = 'Charge move';
+power_whip.damage = 70;
+power_whip.enUse = 100;
+power_whip.cooldown = 2.8;
+
+solar_beam.moveName = 'Solar Beam';
+solar_beam.type = 'Charge move';
+solar_beam.damage = 120;
+solar_beam.enUse = 100;
+solar_beam.cooldown = 4.9;
+
 
 %ground type
 
@@ -156,6 +167,7 @@ dragon_pulse.cooldown = 3.6;
 hyper_beam.moveName = 'Hyper Beam';
 hyper_beam.type = 'Charge move';
 hyper_beam.damage = 120;
+hyper_beam.enUse = 100;
 hyper_beam.cooldown = 5;
 
 

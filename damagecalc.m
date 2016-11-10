@@ -1,37 +1,28 @@
+%files to include with this script:
+%attackSim.m
+%damagecalc.m
+%movedata.m
 
 %clc;
 clear;
 
 movedata;
 
-%over 30 seconds:sola
-typeCheck = 0;
-while typeCheck ~= 1
-    fastMove = input('Please type a fast move\n');
-    typeCheck = strcmp(fastMove.type, 'Fast move');
-    if typeCheck == 0;
-        fprintf('Incorrect move type\n\n'); 
-    end
 
-end
+fprintf('--Pokemon Go move damage calculator/simulator--\nFormatting: Use all lower case with underscores. E.g. ''Solar Beam'' should be input as ''solar_beam''.\n')
+
+fastMove = inputMove('Fast move');
 fastMove.defcooldown = fastMove.cooldown + 2;
-disp(fastMove);
+fastMove.attackingDPS = fastMove.damage/fastMove.cooldown;
+fastMove.defendingDPS = fastMove.damage/fastMove.defcooldown;
 
-
-typeCheck = 0;
-while typeCheck ~= 1
-    chargeMove = input('Please type a charge move\n');
-    typeCheck = strcmp(chargeMove.type, 'Charge move');
-    if typeCheck == 0;
-        fprintf('Incorrect move type\n');
-    end
-end
+chargeMove = inputMove('Charge move');
 chargeMove.defcooldown = chargeMove.cooldown + 2;
+chargeMove.attackingDPS = chargeMove.damage/chargeMove.cooldown;
+chargeMove.defendingDPS = chargeMove.damage/chargeMove.defcooldown;
+
+disp(fastMove);
 disp(chargeMove);
-
-movestats(fastMove);
-movestats(chargeMove);
-
 
 
 %%
@@ -56,6 +47,8 @@ fprintf('\n');
 simMessage3 = ['Total damage dealt: ', totDamageString];
 disp(simMessage3);
 fprintf('\n');
+
+
 
 
 
