@@ -35,17 +35,29 @@ dragon_breath.cooldown = 0.5;
 %fairy type
 
 %fighting type
+karate_chop.moveName = 'Karate Chop';
+karate_chop.type = 'Fast move';
+karate_chop.damage = 6;
+karate_chop.enGain = 7;
+karate_chop.cooldown = 0.8;
+
 rock_smash.moveName = 'Rock Smash';
 rock_smash.type = 'Fast move';
 rock_smash.damage = 15;
 rock_smash.cooldown = 1.41;
 
 %fire type
+ember.moveName = 'Ember';
+ember.type = 'Fast move';
+ember.damage = 10;
+ember.enGain = 7;
+ember.cooldown = 1.05;
 
 %flying type
 wing_attack.moveName = 'Wing Attack';
 wing_attack.type = 'Fast move';
 wing_attack.damage = 9;
+wing_attack.enGain = 7;
 wing_attack.cooldown = 0.75;
 
 %ghost type
@@ -88,6 +100,12 @@ psycho_cut.cooldown = 0.57;
 %rock type
 
 %steel type
+bullet_punch.moveName = 'Bullet Punch';
+bullet_punc.type = 'Fast move';
+bullet_punch.damage = 10;
+bullet_punch.enGain = 7;
+bullet_punch.cooldown = 1.2;
+
 metal_claw.moveName = 'Metal Claw';
 metal_claw.type = 'Fast move';
 metal_claw.damage = 8;
@@ -137,9 +155,31 @@ dragon_pulse.cooldown = 3.6;
 %fairy type
 
 %fighting type
+cross_chop.moveName = 'Cross Chop';
+cross_chop.type = 'Charge move';
+cross_chop.damage = 60;
+cross_chop.enUse = 100;
+cross_chop.cooldown = 2;
+
+submission.moveName = 'Submission';
+submission.type = 'Charge move';
+submission.damage = 30;
+submission.enUse = 33;
+submission.cooldown = 2.1;
 
 
 %fire type
+fire_blast.moveName = 'Fire Blast';
+fire_blast.type = 'Charge move';
+fire_blast.damage = 100;
+fire_blast.enUse = 100;
+fire_blast.cooldown = 4.1;
+
+flamethrower.moveName = 'Flamethrower';
+flamethrower.type = 'Charge move';
+flamethrower.damage = 55;
+flamethrower.enUse = 55;
+flamethrower.cooldown = 2.9;
 
 %flying type
 
@@ -181,6 +221,11 @@ psychic.cooldown = 2.8;
 
 
 %rock type
+stone_edge.moveName = 'Stone Edge';
+stone_edge.type = 'Charge move';
+stone_edge.damage = 80;
+stone_edge.enUse = 100;
+stone_edge.cooldown = 3.1;
 
 %steel type
 

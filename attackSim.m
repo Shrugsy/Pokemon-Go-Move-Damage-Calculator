@@ -1,4 +1,4 @@
-function [totDamage, totTime, fastCounter, chargeCounter] = attackSim(fastMove, chargeMove, simTime)
+function [totDamage, totTime, fastCounter, chargeCounter] = attackSim(fastMove, chargeMove, simTime, simType)
 
 %fast vars: type, damage, speed, energy gain
 %charge vars: type, damage, speed, energy use
@@ -16,19 +16,33 @@ while totTime < simTime;
     
     %simulate casting fast move until charge move ready
     while (currentEnergy < chargeMove.enUse) && (totTime < simTime);
+        
+        
+        if strcmp(simType, 'att');
+            totTime     = totTime + fastMove.cooldown;  
+        else
+            totTime     = totTime + fastMove.defcooldown;
+        end
+        
+        
         totDamage       = totDamage + fastMove.damage;
-        totTime         = totTime + fastMove.cooldown;  
         currentEnergy   = currentEnergy + fastMove.enGain;
         fastCounter = fastCounter + 1;
-        totTime;
+        %totTime;
     end
     %simulate casting charge move
     if totTime < simTime;
+        if strcmp(simType, 'att');
+            totTime = totTime + chargeMove.cooldown;
+        else
+            totTime = totTime + chargeMove.defcooldown;
+        end
+            
         currentEnergy = currentEnergy - chargeMove.enUse;
-        totTime = totTime + chargeMove.cooldown;
+
         totDamage = totDamage + chargeMove.damage;
         chargeCounter = chargeCounter + 1;
-        totTime;
+        %totTime;
     end
 end
 
